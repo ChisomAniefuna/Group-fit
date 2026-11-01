@@ -1,5 +1,10 @@
 # Image credits
 
-`public/images/editorial-style.jpg` is an Unsplash photograph used as editorial fashion inspiration, not as a garment product image. Source: https://images.unsplash.com/photo-1539109136881-3be0616acf4b . Downloaded with sizing and quality parameters on 2026-11-01. Subject matter is decorative editorial context; it is not a participant photograph or an AI try-on result.
+`public/images/wedding-party.jpg`: **Kaybee Photography**, “Elegant Bridesmaids in Nigerian Wedding Attire” / “Group of women in vibrant dresses at a Nigerian wedding, Abuja.”
 
-The catalogue garment illustrations are original SVG assets generated programmatically by this project and explicitly labelled as illustrative demo garments. Prices are sample data.
+- Source: https://www.pexels.com/photo/elegant-bridesmaids-in-nigerian-wedding-attire-33552019/
+- Download: https://images.pexels.com/photos/33552019/pexels-photo-33552019.jpeg (1,600 px width)
+- License: https://www.pexels.com/license/ — free use on websites and apps. Verified 2026-11-01.
+- Used as wedding inspiration only. The pictured people are not GroupFit members or endorsers. CSS crops the image to focus on the wedding party; its colours are not desaturated.
+
+The previous bird/fashion photograph has been replaced. The catalogue garment illustrations are original SVG assets produced programmatically by this project and labelled as illustrative demo garments. Prices are sample data.
