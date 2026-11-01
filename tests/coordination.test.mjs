@@ -1,0 +1,10 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {getPlanBlockers} from '../lib/coordination.ts';
+const catalogue=[{id:'g1',color:'Sage'}];
+const room=()=>({palette:['Sage'],members:['Tola','Ada','Ife'].map((name,i)=>({id:String(i),name,look:{garment:'g1',shared:true,selected:true,budgetOK:true}}))});
+test('a fully confirmed three-person plan has no blockers',()=>assert.deepEqual(getPlanBlockers(room(),catalogue),[]));
+test('a private draft is described as missing sharing, without revealing its garment or budget',()=>{const r=room();r.members[1].look={garment:'private-garment',shared:false,selected:true,budgetOK:false};assert.deepEqual(getPlanBlockers(r,catalogue),[{member:'Ada',message:'Share a look with the group.'}]);});
+test('sharing never substitutes for member confirmation',()=>{const r=room();r.members[2].look.selected=false;assert.equal(getPlanBlockers(r,catalogue)[0].message,'Confirm your outfit choice.');});
+test('an apparently confirmed plan remains blocked by palette, budget or feedback exceptions',()=>{const r=room();r.palette=['Champagne'];r.members[0].look.budgetOK=false;r.members[1].look.feedback='Needs discussion';const b=getPlanBlockers(r,catalogue);assert.equal(b.length,5);assert.ok(b.some(x=>x.message.includes('budget')));assert.ok(b.some(x=>x.message.includes('feedback')));});
+test('a solo host cannot finalize a plan',()=>{const r=room();r.members=r.members.slice(0,1);assert.ok(getPlanBlockers(r,catalogue).some(x=>!x.member));});

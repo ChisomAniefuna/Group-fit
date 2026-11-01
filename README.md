@@ -1,45 +1,48 @@
 # GroupFit
 
-### Get dressed together, even when you’re apart.
+### Your shade. Your style. Your occasion.
 
-GroupFit is a responsive outfit-planning app for small groups preparing for a shared occasion. It brings the event brief, outfit ideas, private previews, feedback, and final decisions into one place.
+GroupFit is a personal styling room for event dress codes, starting with Nigerian aso ebi occasions. The host sets the colour or fabric; each guest explores their own shade, silhouette and finishing details before taking a clear brief to their tailor.
 
-Built around wedding parties and coordinated guests, with room for celebrations, photoshoots, and other formal events.
+**[Open the public app](https://groupfit-ten.vercel.app/)** · **[Source code](https://github.com/ChisomAniefuna/Group-fit)** · **[Mobile preview](docs/images/groupfit-studio-mobile.png)**
 
-**[Open the app](https://groupfit-ten.vercel.app/)** · **[Source code](https://github.com/ChisomAniefuna/Group-fit)** · **[Mobile preview](docs/images/groupfit-mobile.png)**
+> **Project status:** Hackathon MVP. The Vercel production app is public. The personal styling journey works locally without an API key. Skin-tone analysis, personalized shade ranking, recolouring, clothes try-on, and makeup/accessory VTO are **not connected**. The interface explicitly distinguishes manual choices and original references from generated results. Live group events also require the backend connection; the sample group is fictional.
 
-> **Project status:** Hackathon MVP. The Vercel interface is deployed with private access. The production backend connection is pending configuration approval, and live YouCam generation is not configured. You can explore the clearly labelled sample event without either connection. Catalogue garments and prices are illustrative demo data.
-
-![GroupFit sample event board](docs/images/groupfit-board.png)
+![GroupFit personal styling room](docs/images/groupfit-studio.png)
 
 ## The problem
 
-Coordinating outfits usually means scattered shopping links, screenshots, budget conversations, and long message threads. An organizer needs a coherent group look, while each member needs space for their own style, comfort, and spending preferences.
+At an aso ebi celebration, guests may share one fabric or colour while choosing individual styles. Shade, gele, shoes, silhouette and makeup decisions happen across saved screenshots and messages. Once the tailor cuts the fabric, changing direction is expensive.
 
-GroupFit helps the group move from separate ideas to an agreed shortlist. Its main value is coordination: individual choice, a shared direction, and a clear decision.
+GroupFit gathers these decisions into one personal brief. The original group wardrobe remains a secondary space for coordinating with friends.
 
-## What’s included
+## What works today
 
-- **Event briefs:** Occasion, date, colour palette, per-person budget guidance, and organizer notes.
-- **Private invitations:** Invite codes, rotating or revocable links, and rooms for up to eight members when the backend is connected.
-- **Curated catalogue:** Ten original garment illustrations, sample GBP prices, and search, colour, fabric, and budget filters.
-- **Private fitting room:** Save a catalogue draft; optional YouCam integration can generate a private preview after consent and provider setup.
-- **Shared event board:** Publish approved looks, withdraw them, and compare the group’s choices.
-- **Favourites and feedback:** Toggle favourites and add structured thoughts such as “Colour works” or “Needs discussion.”
-- **Group decisions:** Members confirm their own choices; the organizer reviews blockers, agrees the plan, or reopens it.
-- **Summary download:** Export a text coordination plan containing shared outfit choices.
-- **Responsive interface:** Phone, tablet, and desktop layouts, larger mobile controls, keyboard navigation, and reduced-motion support.
+- **Event brief:** Enter an occasion and colour family or custom colour, with optional fabric and personal photos.
+- **Manual shade exploration:** Compare four shades. Undertone is an optional self-reported note, not photo analysis. Pairing ideas are general starting points, not skin-personalized recommendations.
+- **Several images per style:** Keep up to four styles, with four references each. Mark a full-body reference and retain close-ups and tailoring notes.
+- **Reference comparison:** Compare saved inspiration and select a style. No original image is presented as a try-on result.
+- **Finishing preferences:** Select a lip direction and jewellery finish for the brief.
+- **Tailor card:** Download self-contained printable HTML containing the selected style’s image copies, fabric reference, shade, pairing ideas and notes. Open it and use Print to save as PDF. The selfie is excluded.
+- **Device drafts:** Images are resized locally and stored in IndexedDB on the current browser/device. The personal studio sends no photos to a provider or group. Clear the personal draft from the studio when finished.
+- **Secondary group workflow:** Explore ten original garment illustrations, privately save an outfit, explicitly review sharing, and confirm a group plan. Finalization lists outstanding constraints. Demo group changes reset on reload; personal drafts persist.
+- **Responsive design:** Phone, tablet and desktop layouts, keyboard focus, labelled controls and reduced-motion support. Decorative sparkle/star branding has been removed.
 
-## How it works
+## The guest journey
 
-1. **Create an occasion.** Set a brief, palette, date, and budget guidance.
-2. **Invite your people.** Share a private invitation with the group.
-3. **Find a look.** Browse the catalogue and save a private draft.
-4. **Preview if you choose.** With YouCam configured, upload permitted images and consent to generation.
-5. **Share on your terms.** Publish the look you approve; your original image and private budget stay out of the group board.
-6. **Decide together.** Review favourites and feedback, confirm individual choices, and agree the group plan.
+1. Enter the host’s colour or add a fabric photo.
+2. Explore shades manually and note an undertone if already known.
+3. Add permitted full-body inspiration and detail photos for each style.
+4. Compare references and choose the style to brief.
+5. Choose finishing preferences, add notes and download the tailor card.
 
-The initial sample room uses fictional participants and illustrative looks. It is an interactive demo, not a live group session. Demo changes reset when the page reloads.
+Uploads are JPG, PNG or WebP, up to 8 MB each. Copies are resized to a maximum 1,600-pixel edge. Upload screenshots directly; there is no Instagram connection. Use images you own or have permission to use. Device drafts do not sync between browsers. Screen colours are approximate; confirm the physical fabric and construction with the tailor.
+
+## YouCam integration roadmap
+
+The intended demo uses Skin Tone Analysis for measured undertone/depth, Clothes Try-On for reference styles on the guest, and Makeup VTO for finishing previews. Those services require server-side setup and real results before the app can claim personalized rankings or generated previews. Recolouring also needs implementation and validation. No private API key is included in this repository or needed for the current manual studio.
+
+Perfect Corp documents both model-worn and clean garment references for [Clothes Try-On V4](https://www.perfectcorp.com/business/blog/ai-clothes/ai-clothes-try-on-api-v4-outerwear). A front-facing full-body reference is the intended input; close-ups are additional tailor references. Quality on real aso ebi construction remains to be tested with permitted photos and a configured provider. See the official [clothes reference](https://docs.perfectcorp.com/reference/ai_clothes/section/overview) and [makeup reference](https://docs.perfectcorp.com/reference/makeup_vto/section/overview).
 
 ## Voice feature: recommended next step
 
@@ -76,6 +79,8 @@ The sample event works without a private API key. Persistent event operations ne
 
 ```bash
 npm run check  # TypeScript
+npm run check
+npm test
 npm run build  # Production build using webpack
 npm start      # Serve the production build
 ```
@@ -88,7 +93,8 @@ npm start      # Serve the production build
 | Hosting | Vercel; GitHub `main` is the production branch |
 | API gateway | Server-only Next.js routes forwarding explicit GroupFit operations |
 | Existing backend | Cloudflare-backed service for events, guest sessions, votes, and private media |
-| Persistence | D1 for application records; R2 for generated preview files |
+| Personal persistence | Browser IndexedDB for personal draft and resized reference copies |
+| Group persistence | D1 for application records; R2 for generated preview files, once connected |
 | Optional try-on | YouCam AI Clothes V4, called by the backend after provider configuration |
 
 ```mermaid
@@ -101,7 +107,7 @@ flowchart LR
     D --> G[YouCam: optional, consented try-on]
 ```
 
-The gateway accepts only the room, media, and try-on routes. It does not expose the backend service credential to the browser or allow arbitrary upstream URLs.
+The personal studio stays in the browser; the following gateway supports the secondary group workflow. The gateway accepts only the room, media, and try-on routes. It does not expose the backend service credential to the browser or allow arbitrary upstream URLs.
 
 ## Configuration and deployment status
 
@@ -116,7 +122,7 @@ The backend credential has **not been configured in Vercel by this project’s s
 
 A blank configuration example is available in [`.env.example`](.env.example). Local environment files and Vercel metadata are ignored by Git.
 
-The repository is connected to the existing Vercel project. Pushes to `main` trigger deployment. Private Vercel access is enabled, so visitors may need Vercel sign-in and project access before using an event invitation.
+The repository is connected to the existing Vercel project. Pushes to `main` trigger deployment. The production URL is public and does not require Vercel sign-in. Preview deployments remain protected.
 
 The existing backend retains event data. Browser guest cookies are scoped to a hostname; moving to the Vercel URL does not transfer a guest session from the old address.
 
@@ -133,7 +139,7 @@ The existing backend retains event data. Browser guest cookies are scoped to a h
 
 ## Validation and current limits
 
-The existing app has passed production builds, TypeScript checks, and a scripted three-session collaboration test covering invitations, draft and budget privacy, sharing, voting, finalization, host permissions, and cross-event access checks. Layouts were checked at widths from 320px to 1440px. These are development checks, not a claim of a complete security or accessibility audit.
+The personal studio passed upload, export, reload persistence and responsive browser checks, plus tests for safe card output and selfie exclusion. The existing group app has passed production builds, TypeScript checks, and a scripted three-session collaboration test covering invitations, draft and budget privacy, sharing, voting, finalization, host permissions, and cross-event access checks. Layouts were checked at widths from 320px to 1440px. These are development checks, not a claim of a complete security or accessibility audit.
 
 Remaining work:
 
@@ -143,7 +149,7 @@ Remaining work:
 - Add the proposed private voice-note workflow, playback accessibility, and retention controls.
 - Validate the experience with real organizers and members across devices.
 
-On the Vercel version, personal-photo input is limited to 2 MB and the two try-on images must stay under 4 MB combined. Payments, fulfilment, live voice calls, public social feeds, and composite group-image generation are outside the current scope.
+In the secondary group fitting room, try-on photo input is limited to 2 MB each and 4 MB combined. The personal studio accepts up to 8 MB per image and resizes it locally. Payments, fulfilment, live voice calls, public social feeds, and composite group-image generation are outside the current scope.
 
 ## Contributing
 

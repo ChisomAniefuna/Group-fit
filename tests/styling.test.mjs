@@ -1,0 +1,8 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {newDraft,getShades,buildTailorCard} from '../lib/styling.ts';
+const populated=()=>{const d=newDraft();d.styles[0].images=[{id:'own-reference',name:'Original textile.png',data:'data:image/png;base64,AAAA'}];d.styles[0].referenceId='own-reference';return d;};
+test('a tailor card requires inspiration and never fabricates a rendered look',()=>assert.throws(()=>buildTailorCard(newDraft()),/inspiration image/));
+test('export escapes text, includes all style details and excludes the selfie',()=>{const d=populated();d.event='<script>alert(1)</script>';d.selfie={id:'selfie',name:'PRIVATE-SELFIE',data:'data:image/png;base64,BBBB'};d.styles[0].notes='Sleeves & <lining>';d.styles[0].images.push({id:'closeup',name:'Detail.png',data:'data:image/png;base64,CCCC'});const html=buildTailorCard(d);assert.ok(html.includes('&lt;script&gt;'));assert.ok(html.includes('Sleeves &amp; &lt;lining&gt;'));assert.ok(html.includes('CCCC'));assert.ok(!html.includes('BBBB'));assert.ok(!html.includes('PRIVATE-SELFIE'));assert.ok(!html.includes('<script>'));assert.ok(html.includes('not a generated try-on'));});
+test('export rejects executable image URLs',()=>{const d=populated();d.styles[0].images[0].data='javascript:alert(1)';assert.ok(!buildTailorCard(d).includes('javascript:'));});
+test('custom shades stay valid hex colours and reject invalid CSS',()=>{for(const input of ['#e8b2a3','red; background:url(https://example.com)']){const result=getShades('custom',input);assert.equal(result.length,4);assert.ok(result.every(x=>/^#[a-f\d]{6}$/i.test(x.hex)));}});
