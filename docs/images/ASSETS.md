@@ -8,3 +8,8 @@
 - Used as wedding inspiration only. The pictured people are not GroupFit members or endorsers. CSS crops the image to focus on the wedding party; its colours are not desaturated.
 
 The previous bird/fashion photograph has been replaced. The catalogue garment illustrations are original SVG assets produced programmatically by this project and labelled as illustrative demo garments. Prices are sample data.
+
+Additional Pexels inspiration photos, under the same Pexels license (no endorsement implied):
+- `wedding-men.jpg`: https://www.pexels.com/photo/joyful-nigerian-wedding-celebration-moments-29722004/
+- `wedding-couple.jpg`: https://www.pexels.com/photo/wedding-photography-of-an-interracial-couple-16542563/
+The stock couple is not presented as a verified Yoruba couple.
