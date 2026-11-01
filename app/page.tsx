@@ -1,5 +1,6 @@
 'use client';
 import {useEffect,useState,useRef} from 'react';
+import NextImage from 'next/image';
 import {ArrowUpRight,ArrowRight,Plus,ChevronDown,ChevronRight,Check,CheckCheck,Heart,Users,LayoutGrid,Shirt,ScanLine,CalendarDays,Link as LinkIcon,SlidersHorizontal,Search,X,Lock,Upload,Download,Settings,LogOut,Copy,CheckCircle2,Menu,Leaf,Info,Clock,RotateCcw,Mail,Image as ImageIcon} from 'lucide-react';
 import StylingStudio from './styling-studio';
 import {getPlanBlockers} from '../lib/coordination';
@@ -10,7 +11,7 @@ const json=(r:Response)=>r.json() as Promise<API>;
 type Tab='studio'|'board'|'catalogue'|'fitting'|'plan';
 const money=(n:number)=>'£'+n;
 const paletteHex:Record<string,string>={'Dusty rose':'#bc8f91',Champagne:'#d7c4a6',Sage:'#a6ae96',Midnight:'#343e4c'};
-function Dress({id,className=''}:{id:string;className?:string}){return <img width={1024} height={1536} loading="lazy" className={'dress '+className} src={(garments.find(g=>g.id===id)||garments[0]).photo} alt={(garments.find(g=>g.id===id)||garments[0]).name+' — generated photorealistic style concept'}/>}
+function Dress({id,className=''}:{id:string;className?:string}){return <NextImage width={1024} height={1536} sizes="(max-width: 600px) 90vw, (max-width: 960px) 45vw, 30vw" className={'dress '+className} src={(garments.find(g=>g.id===id)||garments[0]).photo} alt={(garments.find(g=>g.id===id)||garments[0]).name+' — generated photorealistic style concept'}/>}
 export default function App(){
  const [data,setData]=useState<Data>({...structuredClone(demoRoom),me:'you'}),[isDemo,setDemo]=useState(true),[tab,setTab]=useState<Tab>('studio'),[modal,setModal]=useState<string|null>(null),[toast,setToast]=useState(''),[busy,setBusy]=useState(false),[filter,setFilter]=useState('All colours'),[material,setMaterial]=useState('All styles'),[query,setQuery]=useState(''),[budgetOnly,setBudgetOnly]=useState(false),[selected,setSelected]=useState('g1'),[invite,setInvite]=useState(''),[pendingCode,setPendingCode]=useState(''),[photo,setPhoto]=useState<File|null>(null),[refPhoto,setRefPhoto]=useState<File|null>(null),[photoURL,setPhotoURL]=useState(''),[consent,setConsent]=useState(false),[generating,setGenerating]=useState(false),[generationText,setGenerationText]=useState(''),[mobile,setMobile]=useState(false),[compact,setCompact]=useState(false);
  const sidebarRef=useRef<HTMLElement>(null),menuRef=useRef<HTMLButtonElement>(null);
