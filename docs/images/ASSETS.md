@@ -16,4 +16,4 @@ The stock couple is not presented as a verified Yoruba couple.
 
 ## Generated catalogue concepts
 
-`public/images/catalogue/{rose,champagne,sage,navy}.png` are original generated photorealistic fashion concepts created on 2026-11-01. They replace the programmatic gown drawings. Each image is labelled as a generated concept in the interface, with no retailer, availability, measured fit or price claim. They are not live try-on results or photographs of manufactured products.
+`public/images/catalogue/{rose,champagne,sage,navy,gown,suit}.png` are original generated photorealistic fashion concepts created on 2026-11-01. They replace the programmatic gown drawings. Each image is labelled as a generated concept in the interface, with no retailer, availability, measured fit or price claim. They are not live try-on results or photographs of manufactured products.

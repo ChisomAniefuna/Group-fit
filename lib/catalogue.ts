@@ -3,6 +3,8 @@ export const garments = [
  {id:'g2',name:'Champagne embroidered agbada',brand:'GROUPFIT STYLE CONCEPT',price:0,color:'Champagne',hex:'#c8b28d',category:'Agbada',cut:'Three-piece · Tonal embroidery · Fila',shape:1,photo:'/images/catalogue/champagne.png'},
  {id:'g3',name:'Sage draped occasion gown',brand:'GROUPFIT STYLE CONCEPT',price:0,color:'Sage',hex:'#a5b09a',category:'Gown',cut:'One shoulder · Lace · Gele',shape:2,photo:'/images/catalogue/sage.png'},
  {id:'g4',name:'Midnight embroidered agbada',brand:'GROUPFIT STYLE CONCEPT',price:0,color:'Midnight',hex:'#343e4c',category:'Agbada',cut:'Three-piece · Silver detail · Fila',shape:3,photo:'/images/catalogue/navy.png'},
+ {id:'g5',name:'Champagne satin evening gown',brand:'GROUPFIT STYLE CONCEPT',price:0,color:'Champagne',hex:'#c8b28d',category:'Gown',cut:'Draped neckline · Full length · Western formalwear',shape:0,photo:'/images/catalogue/gown.png'},
+ {id:'g6',name:'Midnight three-piece wedding suit',brand:'GROUPFIT STYLE CONCEPT',price:0,color:'Midnight',hex:'#343e4c',category:'Suit',cut:'Tailored three-piece · Tie · Western formalwear',shape:1,photo:'/images/catalogue/suit.png'},
 ];
 export type Garment = typeof garments[number];
 export type Member = {id:string;name:string;role:'host'|'member';budget?:number;look?:{garment:string;image?:string;shared:boolean;selected:boolean;budgetOK:boolean;feedback?:string};votes:string[]};
