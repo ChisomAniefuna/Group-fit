@@ -7,7 +7,8 @@ export function getPlanBlockers(room:Room,catalogue:Garment[]):PlanBlocker[]{
   if(!m.look?.shared){blockers.push({member:m.name,message:'Share a look with the group.'});continue;}
   const g=catalogue.find(g=>g.id===m.look?.garment);
   if(!g||!room.palette.includes(g.color))blockers.push({member:m.name,message:'Choose a look in the event palette.'});
-  if(!m.look.budgetOK)blockers.push({member:m.name,message:'Resolve the budget preference.'});
+  if(g?.price===0)blockers.push({member:m.name,message:'Obtain a tailor quote before agreeing the budget.'});
+  else if(!m.look.budgetOK)blockers.push({member:m.name,message:'Resolve the budget preference.'});
   if(['Needs discussion','Prefer another silhouette'].includes(m.look.feedback||''))blockers.push({member:m.name,message:'Resolve the feedback on this look.'});
   if(!m.look.selected)blockers.push({member:m.name,message:'Confirm your outfit choice.'});
  }

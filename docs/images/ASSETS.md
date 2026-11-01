@@ -13,3 +13,7 @@ Additional Pexels inspiration photos, under the same Pexels license (no endorsem
 - `wedding-men.jpg`: https://www.pexels.com/photo/joyful-nigerian-wedding-celebration-moments-29722004/
 - `wedding-couple.jpg`: https://www.pexels.com/photo/wedding-photography-of-an-interracial-couple-16542563/
 The stock couple is not presented as a verified Yoruba couple.
+
+## Generated catalogue concepts
+
+`public/images/catalogue/{rose,champagne,sage,navy}.png` are original generated photorealistic fashion concepts created on 2026-11-01. They replace the programmatic gown drawings. Each image is labelled as a generated concept in the interface, with no retailer, availability, measured fit or price claim. They are not live try-on results or photographs of manufactured products.

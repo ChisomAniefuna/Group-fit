@@ -47,7 +47,7 @@ After real skin-tone analysis and VTO are connected, compare guests’ preferred
 - **Finishing preferences:** Select a lip direction and jewellery finish for the brief.
 - **Tailor card:** Download self-contained printable HTML containing the selected style’s image copies, fabric reference, shade, pairing ideas and notes. Open it and use Print to save as PDF. The selfie is excluded.
 - **Device drafts:** Images are resized locally and stored in IndexedDB on the current browser/device. The personal studio sends no photos to a provider or group. Clear the personal draft from the studio when finished.
-- **Secondary group workflow:** Explore ten original garment illustrations, privately save an outfit, explicitly review sharing, and confirm a group plan. Finalization lists outstanding constraints. Demo group changes reset on reload; personal drafts persist.
+- **Secondary group workflow:** Explore four photorealistic generated occasion styles, privately save an outfit, explicitly review sharing, and confirm a group plan. Finalization lists outstanding constraints. Demo group changes reset on reload; personal drafts persist.
 - **Responsive design:** Phone, tablet and desktop layouts, keyboard focus, labelled controls and reduced-motion support. Decorative sparkle/star branding has been removed.
 
 ## The guest journey
