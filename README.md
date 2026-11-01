@@ -16,6 +16,28 @@ At an aso ebi celebration, guests may share one fabric or colour while choosing 
 
 GroupFit gathers these decisions into one personal brief. The original group wardrobe remains a secondary space for coordinating with friends.
 
+## Differentiation and positioning
+
+**The colour is already chosen. GroupFit helps every guest make it their own.**
+
+The starting point is an event constraint: the host’s colour or fabric. GroupFit focuses on the guest’s personal choices within that brief, beginning with Nigerian aso ebi occasions and extending to other shared dress codes. The destination is a practical look card for a tailor.
+
+| Related project | Published focus | GroupFit’s intended distinction |
+| --- | --- | --- |
+| [ShadeSpan](https://devpost.com/software/shadespan) | Garment colour visibility across skin tones, for pre-launch merchandising | Personal styling for the guest within an existing event colour |
+| [CASTING](https://devpost.com/software/casting) | Product imagery across eight measured skin tones and catalogue coverage | An individual guest’s occasion brief and inspiration-to-tailor journey |
+| [OneDress](https://github.com/edycutjong/onedress) | Selecting one dress colour for a bridal party | Start after the colour is chosen; explore each guest’s shade and style |
+| [Before You Cut](https://devpost.com/software/before-the-cut) | A garment design room for designers, shops and tailors, with design previews | Start with a guest’s event brief and saved inspiration, then prepare their tailor card |
+| [Atelier](https://devpost.com/software/atelier-l6npym), [Drape](https://devpost.com/software/drape-g4s865), [Wearwise](https://devpost.com/software/wearwise-avxm9g) | Personalized styling; some already combine fashion, skin tone and beauty | Focus the journey on a host-set colour or fabric and a guest preparing an aso ebi look |
+
+These comparisons summarize published project descriptions, not hands-on product testing. They establish positioning, not proof that no other project serves this audience. Beauty and fashion together are relevant to GroupFit, but are not unique by themselves. Current manual functionality and planned VTO are distinguished below.
+
+### Evidence to collect for the demo
+
+No user-study or shade-ranking results are claimed yet. With participants’ permission, test whether guests can complete an event brief, compare inspiration and produce a useful tailor card. Record completion rate, time to a chosen style, and whether a tailor can identify the intended design details.
+
+After real skin-tone analysis and VTO are connected, compare guests’ preferred shades within the same event colour. Report “X of N participants preferred a different shade from the host’s reference,” with the sample size, method and failures. This measures participant preference, not an objective or universal “most flattering” shade. Label generated outputs as previews and check them against the original inspiration; they cannot guarantee how sewn clothing will fit or drape.
+
 ## What works today
 
 - **Event brief:** Enter an occasion and colour family or custom colour, with optional fabric and personal photos.
