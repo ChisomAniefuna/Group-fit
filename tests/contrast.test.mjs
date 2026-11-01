@@ -1,0 +1,10 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+const css=readFileSync(new URL('../app/globals.css',import.meta.url),'utf8');
+const tokens=Object.fromEntries([...css.matchAll(/--([\w-]+):\s*(#[\da-f]{3,6})\b/gi)].map(m=>[m[1],m[2]]));
+const luminance=hex=>{const s=hex.slice(1),full=s.length===3?s.split('').map(c=>c+c).join(''):s;const c=[0,2,4].map(i=>parseInt(full.slice(i,i+2),16)/255).map(v=>v<=.04045?v/12.92:((v+.055)/1.055)**2.4);return c[0]*.2126+c[1]*.7152+c[2]*.0722;};
+const ratio=(a,b)=>{const x=luminance(a),y=luminance(b);return(Math.max(x,y)+.05)/(Math.min(x,y)+.05);};
+for(const [fg,bg] of [['ink','paper'],['muted','paper'],['muted','soft'],['muted','warm'],['white','accent'],['success-ink','success-bg'],['warning-ink','warning-bg']])test(`${fg} on ${bg} retains at least 4.5:1 text contrast`,()=>assert.ok(ratio(tokens[fg],tokens[bg])>=4.5,`${tokens[fg]} on ${tokens[bg]} is ${ratio(tokens[fg],tokens[bg])}`));
+for(const bg of ['white','paper','soft'])test(`control boundary on ${bg} retains at least 3:1 contrast`,()=>assert.ok(ratio(tokens['control-border'],tokens[bg])>=3));
+test('keyboard focus ring remains visible against the light surfaces',()=>assert.ok(ratio(tokens.focus,tokens.white)>=3));

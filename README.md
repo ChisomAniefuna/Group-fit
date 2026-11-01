@@ -159,6 +159,10 @@ The existing backend retains event data. Browser guest cookies are scoped to a h
 - Finalization requires at least three members, confirmed shared choices, satisfied palette and budget constraints, and resolved feedback.
 - AI previews are styling approximations, not guarantees of size, fit, fabric drape, or retailer availability.
 
+## Accessibility
+
+The interface uses measured contrast pairs, readable supporting text, visible keyboard focus, labelled colour choices, and 15px rounded buttons. See [colour ratios, checks, and scope](docs/ACCESSIBILITY.md).
+
 ## Validation and current limits
 
 The personal studio passed upload, export, reload persistence and responsive browser checks, plus tests for safe card output and selfie exclusion. The existing group app has passed production builds, TypeScript checks, and a scripted three-session collaboration test covering invitations, draft and budget privacy, sharing, voting, finalization, host permissions, and cross-event access checks. Layouts were checked at widths from 320px to 1440px. These are development checks, not a claim of a complete security or accessibility audit.
